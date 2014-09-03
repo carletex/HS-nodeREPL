@@ -16,3 +16,7 @@
 4. Put those variables in your environment with `$ source keys.sh`
 5. Run `$ python repl` and enter your HackerSchool user and password to get the auth and access token
 6. Start sending requests to the Hacker School API.
+
+## Credits
+
+hs_oauth.py file was written by [@punchagan](https://github.com/punchagan)

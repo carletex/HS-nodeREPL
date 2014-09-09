@@ -1,5 +1,6 @@
-# Hacker School python REPL (WIP)
+# Hacker School node.js REPL
 
+Work in progress.
 
 ## Usage
 

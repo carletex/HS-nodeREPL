@@ -1,6 +1,20 @@
-var repl = require("repl");
+var repl = require('repl');
+var RSVP = require('rsvp')
 var hs = require('hs-oauth-node');
 
+// Wrapper function for getHS using promises
+function get (command) {
+	return new RSVP.Promise(function(resolve, reject) {
+
+		hs.getHS(command, function(error, response) {
+			if (error) reject(error)
+			resolve(response);
+		})
+
+	});
+}
+
+// Main
 hs.connectHS(function(error) {
 
 	if (error) {
@@ -12,6 +26,6 @@ hs.connectHS(function(error) {
 		prompt: "HS> "
 	});
 
-	hsrepl.context.hs = hs;
+	hsrepl.context.get = get;
 
 });

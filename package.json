@@ -1,0 +1,17 @@
+{
+  "name": "hs-noderepl",
+  "version": "0.0.1",
+  "description": "node.js REPL for HackerSchool API",
+  "main": "repl.js",
+  "dependencies": {
+    "hs-oauth-node": "git+https://github.com/carletex/OAuth-hs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carletex/HS-pyREPL"
+  },
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/carletex/HS-pyREPL/issues"
+  }
+}

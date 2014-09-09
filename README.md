@@ -14,9 +14,6 @@
    ```
 
 4. Put those variables in your environment with `$ source keys.sh`
-5. Run `$ python repl` and enter your HackerSchool user and password to get the auth and access token
-6. Start sending requests to the Hacker School API.
-
-## Credits
-
-hs_oauth.py file was written by [@punchagan](https://github.com/punchagan)
+5. Run `$ npm install` to install all the dependencies
+6. Run `$ node repl.js` and enter your HackerSchool user and password to get the auth and access token
+6. Start sending get requests to the Hacker School API (e.g. `HS> var data = get('/api/command'`)

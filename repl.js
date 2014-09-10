@@ -1,17 +1,21 @@
 var repl = require('repl');
 var RSVP = require('rsvp')
+var _ = require('underscore')
 var hs = require('hs-oauth-node');
 
-// Wrapper function for getHS using promises
+// Wrapper function for getHS
 function get (command) {
-	return new RSVP.Promise(function(resolve, reject) {
 
-		hs.getHS(command, function(error, response) {
-			if (error) reject(error)
-			resolve(response);
-		})
+	var result = {};
 
+	hs.getHS(command, function(error, response) {
+		if (error) console.log('Something went wrong', error);
+		delete result.info;
+		_.extend(result, response);
+		console.log('\n', response, '\n');
 	});
+
+	return result;
 }
 
 // Main
@@ -23,7 +27,8 @@ hs.connectHS(function(error) {
 	}
 
 	var hsrepl = repl.start({
-		prompt: "HS> "
+		prompt: "HS> ",
+		ignoreUndefined: true
 	});
 
 	hsrepl.context.get = get;

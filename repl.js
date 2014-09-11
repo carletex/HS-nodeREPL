@@ -10,7 +10,6 @@ function get (command) {
 
 	hs.getHS(command, function(error, response) {
 		if (error) console.log('Something went wrong', error);
-		delete result.info;
 		_.extend(result, response);
 		console.log('\n', response, '\n');
 	});

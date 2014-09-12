@@ -4,8 +4,8 @@
   "description": "node.js REPL for HackerSchool API",
   "main": "repl.js",
   "dependencies": {
-    "hs-oauth-node": "git+https://github.com/carletex/OAuth-hs",
-    "rsvp": "~3.0.13"
+    "hs-oauth-node": "git+https://github.com/carletex/HS-OAuth",
+    "underscore": "~1.7.0"
   },
   "repository": {
     "type": "git",

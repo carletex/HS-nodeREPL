@@ -1,14 +1,18 @@
+/* jshint node: true */
+'use strict';
+
 var repl = require('repl');
-var RSVP = require('rsvp')
-var _ = require('underscore')
+var _ = require('underscore');
 var hs = require('hs-oauth-node');
+
+var hsconn;
 
 // Wrapper function for getHS
 function get (command) {
 
 	var result = {};
 
-	hs.getHS(command, function(error, response) {
+	hsconn.getHS(command, function(error, response) {
 		if (error) console.log('Something went wrong', error);
 		_.extend(result, response);
 		console.log('\n', response, '\n');
@@ -17,16 +21,25 @@ function get (command) {
 	return result;
 }
 
+var config = {
+	username: process.env.HS_EMAIL,
+	password: process.env.HS_PASS,
+	hsID: process.env.HS_CONSUMER_KEY,
+	hsSecret: process.env.HS_CONSUMER_SECRET
+};
+
 // Main
-hs.connectHS(function(error) {
+hs.connectHS(config, function(error, conn) {
 
 	if (error) {
 		console.log('Something went wrong', error);
 		return;
 	}
 
+	hsconn = conn;
+
 	var hsrepl = repl.start({
-		prompt: "HS> ",
+		prompt: 'HS> ',
 		ignoreUndefined: true
 	});
 

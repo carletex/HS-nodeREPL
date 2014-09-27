@@ -1,7 +1,5 @@
 # Hacker School node.js REPL
 
-Work in progress.
-
 ## Usage
 
 1. Clone this repository
